@@ -5,5 +5,5 @@ import Home from './index'
 test('Home', () => {
   render(<Home />)
 
-  expect(screen.getByText('Rodrigo Victor')).toBeDefined()
+  expect(screen.getByText('Entrar com Github')).toBeDefined()
 })
