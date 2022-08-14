@@ -3,7 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 import PostsService from '@App/core/services/PostsService'
 
 export const PostsList = () => {
-  const { data, isLoading } = useQuery(['posts'], PostsService.getPosts)
+  const { data, isLoading } = useQuery(['posts'],
+    PostsService.getPosts)
 
   if (isLoading) return <Spinner color='blue.500' size='xl' />
 
