@@ -10,11 +10,14 @@ export const CreatePost = () => {
   const { data: session } = useSession()
   const [content, setContent] = useState('')
 
+  const isDisabled = content.length < 10
+
   const handleChangeContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value)
   }
 
   const submitContent = useMutation(() => {
+    setContent('')
     return PostsService.createPost(content, session?.user?.id as string)
   }, {
     onSuccess: () => queryClient.invalidateQueries(['posts'])
@@ -23,9 +26,11 @@ export const CreatePost = () => {
   return (
     <>
       <Textarea placeholder='No que você está pensando meu cumpade?' onChange={handleChangeContent} value={content} />
-      <Button onClick={() => {
-        submitContent.mutate()
-      }}
+      <Button
+        onClick={() => {
+          submitContent.mutate()
+        }}
+        disabled={isDisabled}
       >
         Enviar
       </Button>
