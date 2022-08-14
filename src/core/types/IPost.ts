@@ -1,5 +1,4 @@
-
-interface IUser {
+export interface IUser {
   email: string
   id: 'cl6thkskz000637tgp27h8bbq'
   image: 'https://avatars.githubusercontent.com/u/75763403?v=4'

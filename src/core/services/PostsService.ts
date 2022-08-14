@@ -22,7 +22,9 @@ class PostsService {
         body: JSON.stringify({ content, userId }),
         headers: { 'Content-type': 'application/json' }
       })
+
       const json = await response.json()
+      return json
     } catch (error) { console.log(error) }
   }
 }

@@ -1,20 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { prisma } from 'db'
 
-interface BodyParams {
-  content: string
-  userId: string
+interface QueryParams {
+  id: string
 }
 
 export default async function handle (req: NextApiRequest, res: NextApiResponse) {
-  const { content, userId } = req.body as BodyParams
-
   try {
-    const posts = await prisma.post.create({
-      data: { content, userId }
-    })
+    const { id } = req.query as unknown as QueryParams
 
-    res.status(201).json(posts)
+    const user = await prisma.user.findFirst({ where: { id } })
+
+    res.status(200).json(user)
   } catch (error) {
     res.status(400).json(error)
   }

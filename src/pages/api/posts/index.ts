@@ -7,7 +7,6 @@ export default async function handle (req: NextApiRequest, res: NextApiResponse)
 
     res.status(200).json(posts)
   } catch (error) {
-    console.log({ error })
     res.status(400).json(error)
   }
 }
