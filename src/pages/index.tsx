@@ -26,5 +26,5 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     }
   }
 
-  return {}
+  return { props: {} }
 }
