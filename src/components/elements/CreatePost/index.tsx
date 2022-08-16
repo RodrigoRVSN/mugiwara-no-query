@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react'
-import { Button, Textarea } from '@chakra-ui/react'
+import { Box, Button, Textarea } from '@chakra-ui/react'
 import { useMutation } from '@tanstack/react-query'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
@@ -24,16 +24,26 @@ export const CreatePost = () => {
   })
 
   return (
-    <>
-      <Textarea placeholder='No que você está pensando meu cumpade?' onChange={handleChangeContent} value={content} />
+    <Box my={8}>
+      <Textarea
+        placeholder='No que você está pensando meu cumpade?'
+        onChange={handleChangeContent}
+        value={content}
+        bg='blue.200'
+        variant='filled'
+        mb={8}
+      />
+
       <Button
         onClick={() => {
           submitContent.mutate()
         }}
         disabled={isDisabled}
+        bg='blue.900'
+        color='blue.100'
       >
         Enviar
       </Button>
-    </>
+    </Box>
   )
 }

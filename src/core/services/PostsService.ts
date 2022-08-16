@@ -7,12 +7,15 @@ class PostsService {
     this.baseURL = 'http://localhost:3000'
   }
 
-  async getPosts (): Promise<IPost[] | undefined> {
+  async getPosts ({ pageParam = 0 }): Promise<IPost[] | undefined> {
     try {
-      const response = await fetch('/api/posts')
+      const response = await fetch(`/api/posts?page=${pageParam}`)
       const json = await response.json()
+
       return json
-    } catch (error) { console.log(error) }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   async createPost (content: string, userId: string) {
@@ -25,7 +28,9 @@ class PostsService {
 
       const json = await response.json()
       return json
-    } catch (error) { console.log(error) }
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 

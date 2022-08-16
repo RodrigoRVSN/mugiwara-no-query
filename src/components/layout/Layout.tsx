@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
 interface LayoutProps {
@@ -7,8 +7,16 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <Container maxW='container.sm' bg='blue.100'>
-      {children}
-    </Container>
+    <Box bg='blue.900' minH='100vh'>
+      <Container
+        maxW='container.lg'
+        bg='blue.100'
+        boxShadow='inner'
+        minH='100vh'
+        borderRadius={16}
+      >
+        {children}
+      </Container>
+    </Box>
   )
 }

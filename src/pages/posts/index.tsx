@@ -1,17 +1,27 @@
-import { Text } from '@chakra-ui/react'
-import { useSession } from 'next-auth/react'
+import { Box, Button, Flex, Text } from '@chakra-ui/react'
+import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import { CreatePost } from '@App/components/elements/CreatePost'
 import { PostsList } from '@App/components/elements/PostsList'
 
 const Posts = () => {
   const { data: session } = useSession()
+  const router = useRouter()
+
+  const handleSignOut = () => {
+    signOut()
+    router.replace('/')
+  }
 
   return (
-    <>
-      <Text>eaeeee {session?.user?.name}</Text>
+    <Box p={8}>
+      <Flex alignItems='center' justifyContent='space-between'>
+        <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
+        <Button onClick={handleSignOut}>Sair</Button>
+      </Flex>
       <CreatePost />
       <PostsList />
-    </>
+    </Box>
   )
 }
 
