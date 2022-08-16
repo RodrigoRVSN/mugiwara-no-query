@@ -1,16 +1,15 @@
-# next_ts_template
+# mugiwara-no-query
 
 <!--- https://shields.io --->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/rodrigorvsn/next_ts_template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/rodrigorvsn/next_ts_template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/rodrigorvsn/next_ts_template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rodrigorvsn/next_ts_template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/rodrigorvsn/next_ts_template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/rodrigorvsn/mugiwara-no-query?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/rodrigorvsn/mugiwara-no-query?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/rodrigorvsn/mugiwara-no-query?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rodrigorvsn/mugiwara-no-query?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/rodrigorvsn/mugiwara-no-query?style=for-the-badge)
 
 ___
 <!--- #################### mudar badges #################### --->
-
 
 
 
@@ -28,33 +27,33 @@ ___
 
 - Typescript
 - <b>Nextjs</b>
-- Axios
-- Cypress
-- Jest
-- Linters
+- <b>React Query</b>
+- Chakra Ui
+- Next Auth
+- Prisma ORM
 
 <!--- #################### mudar ferramentas #################### --->
 ___
-## 🚀 Installing next_ts_template
+## 🚀 Installing mugiwara-no-query
 
 To use, follow the steps:
 
 ```bash
-git clone https://github.com/rodrigorvsn/next_ts_template.git
+git clone https://github.com/rodrigorvsn/mugiwara-no-query.git
 ```
 
 ```bash
-bun install
+yarn
 ```
 
 ```bash
-bun dev
+yarn dev
 ```
 
 
-## 📫 Contribuiting with next_ts_template
+## 📫 Contribuiting with mugiwara-no-query
 
-To contribue with next_ts_template, follow the steps:
+To contribue with mugiwara-no-query, follow the steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <name_branch>`.
@@ -71,7 +70,7 @@ Made with ❤️ by:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/rodrigorvsn">
         <img src="https://github.com/rodrigorvsn.png" width="100px;" alt="Foto do Rodrigo Victor no GitHub"/><br>
         <sub>
           <b>Rodrigo Victor</b>
