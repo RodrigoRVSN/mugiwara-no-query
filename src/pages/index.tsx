@@ -8,8 +8,9 @@ export default function Home (): JSX.Element {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Falai | Início</title>
       </Head>
+
       <Box
         w='full'
         h='100vh'

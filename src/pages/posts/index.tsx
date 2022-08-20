@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { signOut, useSession } from 'next-auth/react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { CreatePost } from '@App/components/elements/CreatePost'
 import { PostsList } from '@App/components/elements/PostsList'
@@ -14,19 +15,25 @@ const Posts = () => {
   }
 
   return (
-    <Box p={8}>
-      <Flex alignItems='center' justifyContent='space-between'>
-        {session?.user &&
-          <>
-            <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
-            <Button onClick={handleSignOut}>Sair</Button>
-          </>
-        }
-      </Flex>
+    <>
+      <Head>
+        <title>Página de postagens</title>
+      </Head>
 
-      <CreatePost />
-      <PostsList />
-    </Box>
+      <Box p={8}>
+        <Flex alignItems='center' justifyContent='space-between'>
+          {session?.user &&
+            <>
+              <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
+              <Button onClick={handleSignOut}>Sair</Button>
+            </>
+          }
+        </Flex>
+
+        <CreatePost />
+        <PostsList />
+      </Box>
+    </>
   )
 }
 
