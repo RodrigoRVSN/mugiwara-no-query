@@ -22,12 +22,13 @@ export const Post = ({ post }: IPostProps) => {
     >
       <Link href={`/users/${post.user?.id}`}>
         <Avatar
+          cursor='pointer'
           src={post.user?.image ?? session?.user?.image as string}
           size='lg'
           loading='lazy'
         />
       </Link>
-      <Box m={3}>
+      <Box mx={3}>
         <span>{post.user?.name ?? session?.user?.name}</span>
         <p>{post.content}</p>
       </Box>

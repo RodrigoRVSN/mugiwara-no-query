@@ -7,13 +7,13 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <Box bg='blue.900' minH='100vh'>
+    <Box bg='blue.900' minH='100vh' py={8}>
       <Container
         maxW='container.lg'
         bg='blue.100'
-        boxShadow='inner'
+        boxShadow='dark-lg'
         minH='100vh'
-        borderRadius={16}
+        borderRadius={32}
       >
         {children}
       </Container>
