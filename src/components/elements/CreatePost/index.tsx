@@ -1,14 +1,14 @@
 import type { ChangeEvent } from 'react'
 import { Box, Button, Textarea } from '@chakra-ui/react'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import PostsService from '@App/core/services/PostsService'
-import { queryClient } from '@App/pages/_app'
 
 export const CreatePost = () => {
   const { data: session } = useSession()
   const [content, setContent] = useState('')
+  const queryClient = useQueryClient()
 
   const isDisabled = content.length < 10
 
