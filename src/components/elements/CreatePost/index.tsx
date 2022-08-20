@@ -4,22 +4,41 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 import PostsService from '@App/core/services/PostsService'
+import { IPost } from '@App/core/types/IPost'
 
 export const CreatePost = () => {
   const { data: session } = useSession()
   const [content, setContent] = useState('')
   const queryClient = useQueryClient()
 
-  const isDisabled = content.length < 10
+  const isDisabled = content.length < 2
 
   const handleChangeContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value)
   }
 
-  const submitContent = useMutation(() => {
-    setContent('')
-    return PostsService.createPost(content, session?.user?.id as string)
-  }, {
+  const submitContent = useMutation(() =>
+    PostsService.createPost(content, session?.user?.id as string), {
+    onMutate: async (text: string) => {
+      setContent('')
+      await queryClient.cancelQueries(['posts'])
+
+      const previousState = queryClient.getQueryData(['posts'])
+      const optimisticPost = {
+        content: text
+      }
+
+      queryClient.setQueryData<IPost[]>(['posts'], (oldState) => {
+        return [optimisticPost, ...(oldState ?? [])]
+      })
+
+      return { previousState }
+    },
+    onError: () => {
+      const { previousState } = queryClient.getQueryData(['posts']) as { previousState: IPost }
+
+      queryClient.setQueryData(['posts'], previousState)
+    },
     onSuccess: () => queryClient.invalidateQueries(['posts'])
   })
 
@@ -36,14 +55,16 @@ export const CreatePost = () => {
 
       <Button
         onClick={() => {
-          submitContent.mutate()
+          submitContent.mutate(content)
         }}
         disabled={isDisabled}
         bg='blue.900'
         color='blue.100'
+        isLoading={submitContent.isLoading}
       >
         Enviar
       </Button>
+
     </Box>
   )
 }

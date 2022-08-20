@@ -1,32 +1,34 @@
-import { Flex, Spinner } from '@chakra-ui/react'
-import { useInfiniteQuery } from '@tanstack/react-query'
+import { Alert, AlertIcon, Box, Button, Flex, Spinner } from '@chakra-ui/react'
+import { useQuery } from '@tanstack/react-query'
 import PostsService from '@App/core/services/PostsService'
-import { ButtonSeeMore } from './components/ButtonSeeMore'
 import { Post } from './components/Post'
 
 export const PostsList = () => {
-  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery(['posts'],
-    PostsService.getPosts,
-    {
-      getPreviousPageParam: (firstPage, allPages) => allPages.length - 1,
-      getNextPageParam: (lastPage, allPages) => allPages.length + 1
-    }
-  )
+  const { data, status, refetch } = useQuery(['posts'], PostsService.getPosts)
 
-  if (isLoading) return <Spinner color='blue.500' size='xl' />
+  const handleStatus = {
+    loading: <Spinner color='blue.500' size='lg' m='auto' />,
+    success: (
+      <>
+        {data?.map(post =>
+          <Post post={post} key={post.id} />
+        )}
+      </>
+    ),
+    error: (
+      <Box>
+        <Alert status='error'>
+          <AlertIcon />
+          Houve um erro ao carregar os posts :(
+          <Button onClick={() => refetch()} ml='auto'>Tentar novamente</Button>
+        </Alert>
+      </Box>
+    )
+  }
 
   return (
-    <Flex flexDirection='column' >
-      {data?.pages.map(page =>
-        page?.map(item => (
-          <Post post={item} key={item.id} />
-        ))
-      )}
-
-      <ButtonSeeMore
-        hasNextPage={hasNextPage}
-        fetchNextPage={fetchNextPage}
-      />
+    <Flex flexDirection='column' w='full'>
+      {handleStatus[status]}
     </Flex>
   )
 }

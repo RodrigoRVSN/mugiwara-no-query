@@ -7,9 +7,9 @@ class PostsService {
     this.baseURL = 'http://localhost:3000'
   }
 
-  async getPosts ({ pageParam = 0 }): Promise<IPost[] | undefined> {
+  async getPosts (): Promise<IPost[] | undefined> {
     try {
-      const response = await fetch(`/api/posts?page=${pageParam}`)
+      const response = await fetch('/api/posts')
       const json = await response.json()
 
       return json

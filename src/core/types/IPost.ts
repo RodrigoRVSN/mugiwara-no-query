@@ -6,10 +6,10 @@ export interface IUser {
 }
 
 export interface IPost {
-  id: string;
+  id?: string;
   content: string;
-  likes: number;
-  created_at: string
-  userId: string
-  user: IUser
+  likes?: number;
+  created_at?: string
+  userId?: string
+  user?: IUser
 }

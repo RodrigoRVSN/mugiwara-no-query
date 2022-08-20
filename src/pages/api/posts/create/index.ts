@@ -10,6 +10,8 @@ export default async function handle (req: NextApiRequest, res: NextApiResponse)
   const { content, userId } = req.body as BodyParams
 
   try {
+    await new Promise((resolve) => setTimeout(resolve, 5000))
+
     const posts = await prisma.post.create({
       data: { content, userId }
     })
