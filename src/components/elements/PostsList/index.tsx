@@ -4,7 +4,9 @@ import PostsService from '@App/core/services/PostsService'
 import { Post } from './components/Post'
 
 export const PostsList = () => {
-  const { data, status, refetch } = useQuery(['posts'], PostsService.getPosts)
+  const { data, status, refetch } = useQuery(['posts'], PostsService.getPosts, {
+    staleTime: 20000
+  })
 
   const handleStatus = {
     loading: <Spinner color='blue.500' size='lg' m='auto' />,

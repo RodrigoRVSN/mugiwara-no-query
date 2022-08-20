@@ -8,6 +8,7 @@ interface BodyParams {
 
 export default async function handle (req: NextApiRequest, res: NextApiResponse) {
   const { content, userId } = req.body as BodyParams
+  console.log('🎲 Creating a item...')
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 5000))
