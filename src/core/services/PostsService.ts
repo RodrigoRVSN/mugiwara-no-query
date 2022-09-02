@@ -8,29 +8,19 @@ class PostsService {
   }
 
   async getPosts (): Promise<IPost[] | undefined> {
-    try {
-      const response = await fetch('/api/posts')
-      const json = await response.json()
+    const response = await fetch('/api/posts')
 
-      return json
-    } catch (error) {
-      console.log(error)
-    }
+    return response.json()
   }
 
   async createPost (content: string, userId: string) {
-    try {
-      const response = await fetch(`${this.baseURL}/api/posts/create`, {
-        method: 'POST',
-        body: JSON.stringify({ content, userId }),
-        headers: { 'Content-type': 'application/json' }
-      })
+    const response = await fetch(`${this.baseURL}/api/posts/create`, {
+      method: 'POST',
+      body: JSON.stringify({ content, userId }),
+      headers: { 'Content-type': 'application/json' }
+    })
 
-      const json = await response.json()
-      return json
-    } catch (error) {
-      console.log(error)
-    }
+    return response.json()
   }
 }
 

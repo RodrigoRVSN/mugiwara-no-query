@@ -8,14 +8,9 @@ class UsersService {
   }
 
   async getUser (userId: string): Promise<IUser | undefined> {
-    try {
-      const response = await fetch(`${this.baseURL}/api/users/${userId}`)
+    const response = await fetch(`${this.baseURL}/api/users/${userId}`)
 
-      const json = await response.json()
-      return json
-    } catch (error) {
-      console.error(error)
-    }
+    return response.json()
   }
 }
 

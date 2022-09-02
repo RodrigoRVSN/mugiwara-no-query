@@ -10,7 +10,7 @@ interface UserProps {
 }
 
 export default function User ({ user } : UserProps) {
-  const { data } = useQuery([`users/${user.id}`], () => UsersService.getUser(user.id), { initialData: user })
+  const { data } = useQuery(['users', user.id], () => UsersService.getUser(user.id), { initialData: user })
   const router = useRouter()
 
   const goBack = () => {

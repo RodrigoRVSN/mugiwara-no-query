@@ -31,7 +31,9 @@ const Posts = () => {
         </Flex>
 
         <CreatePost />
+
         <PostsList />
+
       </Box>
     </>
   )
