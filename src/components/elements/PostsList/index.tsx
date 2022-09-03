@@ -5,16 +5,16 @@ import { Post } from './components/Post'
 
 export const PostsList = () => {
   const { data, status, refetch } = useQuery(['posts'], PostsService.getPosts, {
-    staleTime: 20000
+    staleTime: 20000,
   })
 
   const handleStatus = {
     loading: <Spinner color='blue.500' size='lg' m='auto' />,
     success: (
       <>
-        {data?.map(post =>
+        {data?.map((post) => (
           <Post post={post} key={post.id} />
-        )}
+        ))}
       </>
     ),
     error: (
@@ -22,10 +22,12 @@ export const PostsList = () => {
         <Alert status='error'>
           <AlertIcon />
           Houve um erro ao carregar os posts :(
-          <Button onClick={() => refetch()} ml='auto'>Tentar novamente</Button>
+          <Button onClick={() => refetch()} ml='auto'>
+            Tentar novamente
+          </Button>
         </Alert>
       </Box>
-    )
+    ),
   }
 
   return (

@@ -23,7 +23,7 @@ export const Post = ({ post }: IPostProps) => {
       <Link href={`/users/${post.user?.id}`}>
         <Avatar
           cursor='pointer'
-          src={post.user?.image ?? session?.user?.image as string}
+          src={post.user?.image ?? (session?.user?.image as string)}
           size='lg'
           loading='lazy'
         />

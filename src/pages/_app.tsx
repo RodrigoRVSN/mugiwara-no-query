@@ -7,9 +7,9 @@ import { Layout } from '@App/components/layout/Layout'
 
 const queryClient = new QueryClient()
 
-export default function App ({
+export default function App({
   Component,
-  pageProps: { session, ...pageProps }
+  pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
     <ChakraProvider>

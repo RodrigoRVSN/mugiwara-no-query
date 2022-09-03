@@ -17,30 +17,34 @@ export const CreatePost = () => {
     setContent(event.target.value)
   }
 
-  const submitContent = useMutation(() =>
-    PostsService.createPost(content, session?.user?.id as string), {
-    onMutate: async (text: string) => {
-      setContent('')
-      await queryClient.cancelQueries(['posts'])
+  const submitContent = useMutation(
+    () => PostsService.createPost(content, session?.user?.id as string),
+    {
+      onMutate: async (text: string) => {
+        setContent('')
+        await queryClient.cancelQueries(['posts'])
 
-      const previousState = queryClient.getQueryData(['posts'])
-      const optimisticPost = {
-        content: text
-      }
+        const previousState = queryClient.getQueryData(['posts'])
+        const optimisticPost = {
+          content: text,
+        }
 
-      queryClient.setQueryData<IPost[]>(['posts'], (oldState) => {
-        return [optimisticPost, ...(oldState ?? [])]
-      })
+        queryClient.setQueryData<IPost[]>(['posts'], (oldState) => {
+          return [optimisticPost, ...(oldState ?? [])]
+        })
 
-      return { previousState }
+        return { previousState }
+      },
+      onError: () => {
+        const { previousState } = queryClient.getQueryData(['posts']) as {
+          previousState: IPost
+        }
+
+        queryClient.setQueryData(['posts'], previousState)
+      },
+      onSuccess: () => queryClient.invalidateQueries(['posts']),
     },
-    onError: () => {
-      const { previousState } = queryClient.getQueryData(['posts']) as { previousState: IPost }
-
-      queryClient.setQueryData(['posts'], previousState)
-    },
-    onSuccess: () => queryClient.invalidateQueries(['posts'])
-  })
+  )
 
   return (
     <Box my={8}>
@@ -64,7 +68,6 @@ export const CreatePost = () => {
       >
         Enviar
       </Button>
-
     </Box>
   )
 }

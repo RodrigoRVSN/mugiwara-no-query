@@ -22,18 +22,17 @@ const Posts = () => {
 
       <Box p={8}>
         <Flex alignItems='center' justifyContent='space-between'>
-          {session?.user &&
+          {session?.user && (
             <>
               <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
               <Button onClick={handleSignOut}>Sair</Button>
             </>
-          }
+          )}
         </Flex>
 
         <CreatePost />
 
         <PostsList />
-
       </Box>
     </>
   )

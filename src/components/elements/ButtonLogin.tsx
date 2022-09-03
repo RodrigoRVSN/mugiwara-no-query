@@ -7,6 +7,8 @@ export const ButtonLogin = () => {
   }
 
   return (
-    <Button colorScheme='blue' onClick={handleLogin}>Entrar com Github</Button>
+    <Button colorScheme='blue' onClick={handleLogin}>
+      Entrar com Github
+    </Button>
   )
 }

@@ -6,9 +6,9 @@ export interface IUser {
 }
 
 export interface IPost {
-  id?: string;
-  content: string;
-  likes?: number;
+  id?: string
+  content: string
+  likes?: number
   created_at?: string
   userId?: string
   user?: IUser

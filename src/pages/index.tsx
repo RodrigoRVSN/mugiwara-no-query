@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import { ButtonLogin } from '@components/elements/ButtonLogin'
 
-export default function Home (): JSX.Element {
+export default function Home(): JSX.Element {
   return (
     <>
       <Head>
@@ -17,7 +17,7 @@ export default function Home (): JSX.Element {
         alignItems='center'
         justifyContent='center'
         display='flex'
-       >
+      >
         <ButtonLogin />
       </Box>
     </>
@@ -31,8 +31,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     return {
       redirect: {
         destination: '/posts',
-        permanent: false
-      }
+        permanent: false,
+      },
     }
   }
 

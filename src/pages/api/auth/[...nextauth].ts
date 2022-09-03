@@ -9,12 +9,12 @@ export default NextAuth({
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string
-    })
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+    }),
   ],
   theme: {
     colorScheme: 'dark',
-    buttonText: 'Fazer login'
+    buttonText: 'Fazer login',
   },
   callbacks: {
     session: async ({ session, user }) => {
@@ -22,7 +22,7 @@ export default NextAuth({
         session.user = { ...user }
       }
       return session
-    }
+    },
   },
-  debug: true
+  debug: true,
 })

@@ -2,18 +2,20 @@
   "$schema": "http://json.schemastore.org/eslintrc",
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react","react-hooks","@typescript-eslint", "import"],
+  "plugins": ["react","react-hooks","@typescript-eslint", "prettier"],
   "extends": [
     "plugin:react/recommended",
     "standard",
     "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "env": {
     "node": true,
     "es6": true
   },
   "rules": {
+    "prettier/prettier": "error",
     "no-shadow": 1,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
@@ -44,6 +46,9 @@
       "typescript": {
         "alwaysTryTypes": true
       }
+    },
+    "react": {
+      "version": "detect"
     }
   },
   "ignorePatterns": ["node_modules/", "build/", "dist/"]

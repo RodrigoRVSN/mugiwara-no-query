@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "prepare": "husky install",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "ps": "prisma studio"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -49,6 +50,7 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",

@@ -5,7 +5,10 @@ interface QueryParams {
   id: string
 }
 
-export default async function handle (req: NextApiRequest, res: NextApiResponse) {
+export default async function handle(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   try {
     const { id } = req.query as unknown as QueryParams
 
