@@ -15,24 +15,26 @@ This is the component to render the `Posts`
 <Props />
 
 # Controlled
-<Story
-  name="Controlled"
-  args={{
-    post: {
-      id: '1',
-      content: 'qual foi',
-      likes: 1,
-      created_at: 'qual foi',
-      userId: 'qual foi',
-      user: {
-        email: 'rodrigo@gmail.com',
-        id: 'cl6thkskz000637tgp27h8bbq',
-        image: 'https://avatars.githubusercontent.com/u/75763403?v=4',
-        name: 'Rodrigo Victor'
-      }}
-  }}>
-  {Template.bind({})}
-</Story>
+<Canvas>
+  <Story
+    name="Controlled"
+    args={{
+      post: {
+        id: '1',
+        content: 'qual foi',
+        likes: 1,
+        created_at: 'qual foi',
+        userId: 'qual foi',
+        user: {
+          email: 'rodrigo@gmail.com',
+          id: 'cl6thkskz000637tgp27h8bbq',
+          image: 'https://avatars.githubusercontent.com/u/75763403?v=4',
+          name: 'Rodrigo Victor'
+        }}
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
 ## Example variants
 <Preview>
