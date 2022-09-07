@@ -1,4 +1,4 @@
-# mugiwara-no-query
+# Mugiwara no Query
 
 <!--- https://shields.io --->
 
@@ -11,12 +11,11 @@
 ___
 <!--- #################### mudar badges #################### --->
 
-
-
+![image](https://user-images.githubusercontent.com/75763403/188975236-00c62efe-7274-4b85-ad33-99a4c63e4519.png)
 
 <!--- #################### mudar imagem exemplo #################### --->
 ___
-> This is a NextJS template made with linters and patterns.
+> This is a POC with React Query to test the features of this tool.
 ___
 ## 💻 Prerequisites
 
@@ -33,10 +32,19 @@ ___
 - Prisma ORM
 
 <!--- #################### mudar ferramentas #################### --->
+## 🧪 React Query features used:
+
+- Query
+- Mutations
+- Optimistic update
+- Devtools
+- Cache
+- Prefetch with SSR
+
 ___
 ## 🚀 Installing mugiwara-no-query
 
-To use, follow the steps:
+1. To use, follow the steps:
 
 ```bash
 git clone https://github.com/rodrigorvsn/mugiwara-no-query.git
@@ -45,6 +53,20 @@ git clone https://github.com/rodrigorvsn/mugiwara-no-query.git
 ```bash
 yarn
 ```
+
+2. Fill the `.env`, with the `.env.example`. Generate the Postgres database in the `docker-compose.yml` (optional), with:
+
+```bash
+docker-compose up -d
+```
+
+3. Populate the database if necessary with:
+
+```bash
+yarn prisma db push
+```
+
+4. Run!
 
 ```bash
 yarn dev
