@@ -3,7 +3,7 @@ services:
 
   db:
     image: postgres
-    container_name: database_miakhats
+    container_name: db_react_query
     restart: always
     ports:
       - 5432:5432

@@ -1,6 +1,7 @@
 import { Box, Button } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
 import { GetServerSidePropsContext } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import UsersService from '@App/core/services/UsersService'
 import { IUser } from '@App/core/types/IPost'
@@ -15,6 +16,7 @@ export default function User({ user }: UserProps) {
     () => UsersService.getUser(user.id),
     { initialData: user },
   )
+
   const router = useRouter()
 
   const goBack = () => {
@@ -22,10 +24,17 @@ export default function User({ user }: UserProps) {
   }
 
   return (
-    <Box>
-      <Button onClick={goBack}>Voltar</Button>
-      <h1>oi {data?.name}</h1>
-    </Box>
+    <>
+      <Head>
+        <title>{data?.name}</title>
+      </Head>
+      <Box p={8}>
+        <Button onClick={goBack}>Voltar</Button>
+        <h1>
+          Olá {data?.name}, email {data?.email}
+        </h1>
+      </Box>
+    </>
   )
 }
 
