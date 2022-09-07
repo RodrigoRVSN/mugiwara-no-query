@@ -65,6 +65,7 @@ export const CreatePost = () => {
         bg='blue.900'
         color='blue.100'
         isLoading={submitContent.isLoading}
+        data-testid='create__post--button'
       >
         Enviar
       </Button>
