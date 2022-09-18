@@ -25,7 +25,9 @@ export const Post = ({ post }: IPostProps) => {
         </Box>
       </Box>
 
-      <LikeButton likes={post.likes} postId={String(post.id)} />
+      {post.user?.name && (
+        <LikeButton likes={post.likes} postId={String(post.id)} />
+      )}
     </Box>
   )
 }
