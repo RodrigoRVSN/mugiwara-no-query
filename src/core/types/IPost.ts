@@ -5,10 +5,15 @@ export interface IUser {
   name: string
 }
 
+export interface ILike {
+  userId: string
+  postId: string
+}
+
 export interface IPost {
   id?: string
   content: string
-  likes?: number
+  likes?: ILike[]
   created_at?: string
   userId?: string
   user?: IUser
