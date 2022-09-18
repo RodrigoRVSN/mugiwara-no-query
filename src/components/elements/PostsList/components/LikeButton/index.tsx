@@ -14,6 +14,8 @@ export const LikeButton = ({ likes, postId }: ILikeButton) => {
   const { data: session } = useSession()
   const queryClient = useQueryClient()
 
+  const isLiked = likes?.find((like) => like.postId === postId)
+
   const { isLoading, mutate } = useMutation(
     () => PostsService.likePost(String(session?.user?.id), postId),
     {
@@ -29,11 +31,15 @@ export const LikeButton = ({ likes, postId }: ILikeButton) => {
         aria-label='Curtir postagem'
         icon={<StarIcon />}
         onClick={() => mutate()}
-        color='red.400'
+        color={isLiked ? 'red.400' : 'blue.700'}
         backgroundColor='transparent'
         isLoading={isLoading}
       />
-      {likes ? likes.length : 0} favoritado(s)
+      {isLoading ? (
+        '...'
+      ) : (
+        <span>{likes ? likes.length : 0} favoritado(s)</span>
+      )}
     </Box>
   )
 }
