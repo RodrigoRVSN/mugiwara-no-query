@@ -6,16 +6,16 @@ interface QueryParams {
 }
 
 export default async function handle(
-  req: NextApiRequest,
-  res: NextApiResponse,
+  request: NextApiRequest,
+  response: NextApiResponse,
 ) {
   try {
-    const { id } = req.query as unknown as QueryParams
+    const { id } = request.query as unknown as QueryParams
 
     const user = await prisma.user.findFirst({ where: { id } })
 
-    res.status(200).json(user)
+    response.status(200).json(user)
   } catch (error) {
-    res.status(400).json(error)
+    response.status(400).json(error)
   }
 }

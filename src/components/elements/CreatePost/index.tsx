@@ -1,4 +1,5 @@
 import type { ChangeEvent } from 'react'
+import { ChatIcon } from '@chakra-ui/icons'
 import { Box, Button, Textarea } from '@chakra-ui/react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSession } from 'next-auth/react'
@@ -66,6 +67,7 @@ export const CreatePost = () => {
         color='blue.100'
         isLoading={submitContent.isLoading}
         data-testid='create__post--button'
+        leftIcon={<ChatIcon />}
       >
         Enviar
       </Button>

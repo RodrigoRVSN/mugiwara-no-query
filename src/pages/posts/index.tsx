@@ -1,3 +1,4 @@
+import { ChevronLeftIcon } from '@chakra-ui/icons'
 import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { signOut, useSession } from 'next-auth/react'
 import Head from 'next/head'
@@ -25,7 +26,9 @@ const Posts = () => {
           {session?.user && (
             <>
               <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
-              <Button onClick={handleSignOut}>Sair</Button>
+              <Button leftIcon={<ChevronLeftIcon />} onClick={handleSignOut}>
+                Sair
+              </Button>
             </>
           )}
         </Flex>

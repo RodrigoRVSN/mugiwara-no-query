@@ -22,6 +22,16 @@ class PostsService {
 
     return response.json()
   }
+
+  async likePost(userId: string, postId: string) {
+    const response = await fetch(`${this.baseURL}/api/posts/like/${postId}`, {
+      method: 'PUT',
+      body: JSON.stringify({ userId }),
+      headers: { 'Content-type': 'application/json' },
+    })
+
+    return response.json()
+  }
 }
 
 export default new PostsService()
