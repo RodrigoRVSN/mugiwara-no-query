@@ -24,7 +24,7 @@ const Posts = () => {
         <Flex alignItems='center' justifyContent='space-between'>
           {session?.user && (
             <>
-              <Text>Fala mugiwara {session?.user?.name}, beleza?</Text>
+              <Text>Coe {session?.user?.name}, beleza?</Text>
               <Button onClick={handleSignOut}>Sair</Button>
             </>
           )}

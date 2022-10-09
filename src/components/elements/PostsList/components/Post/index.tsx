@@ -1,4 +1,4 @@
-import { Avatar, Box } from '@chakra-ui/react'
+import { Avatar, Box, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import { IPost } from '@core/types/IPost'
 
@@ -26,7 +26,7 @@ export const Post = ({ post }: IPostProps) => {
         />
       </Link>
       <Box mx={3}>
-        <span>{post.user?.name ?? '...'}</span>
+        <Text fontWeight='bold'>{post.user?.name ?? '...'}</Text>
         <p>{post.content}</p>
       </Box>
     </Box>
