@@ -38,8 +38,5 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
-      - name: 🧪 Run Cypress tests
-        run: yarn cy:run
-
       - name: 👘 Run linter
         run: yarn lint
