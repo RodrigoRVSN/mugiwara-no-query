@@ -7,7 +7,6 @@
     "start": "next start",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
-    "test": "cy:run",
     "prepare": "husky install",
     "lint": "eslint . --fix",
     "ps": "prisma studio",
