@@ -2,8 +2,8 @@ import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { signOut, useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { CreatePost } from '@App/components/elements/CreatePost'
-import { PostsList } from '@App/components/elements/PostsList'
+import { CreatePost } from '@components/elements/CreatePost'
+import { PostsList } from '@components/elements/PostsList'
 
 const Posts = () => {
   const { data: session } = useSession()

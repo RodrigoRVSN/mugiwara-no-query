@@ -1,6 +1,6 @@
 import { Alert, AlertIcon, Box, Button, Flex, Spinner } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
-import PostsService from '@App/core/services/PostsService'
+import PostsService from '@core/services/PostsService'
 import { Post } from './components/Post'
 
 export const PostsList = () => {

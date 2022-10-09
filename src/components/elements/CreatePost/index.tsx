@@ -3,8 +3,8 @@ import { Box, Button, Textarea } from '@chakra-ui/react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
-import PostsService from '@App/core/services/PostsService'
-import { IPost } from '@App/core/types/IPost'
+import PostsService from '@core/services/PostsService'
+import { IPost } from '@core/types/IPost'
 
 export const CreatePost = () => {
   const { data: session } = useSession()

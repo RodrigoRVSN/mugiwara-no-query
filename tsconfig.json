@@ -20,12 +20,6 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@App/*": [
-        "src/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
       "@components/*": [
         "src/components/*"
       ],
@@ -34,9 +28,6 @@
       ],
       "@pages/*": [
         "src/pages/*"
-      ],
-      "@services/*": [
-        "src/services/*"
       ]
     },
     "skipLibCheck": true,

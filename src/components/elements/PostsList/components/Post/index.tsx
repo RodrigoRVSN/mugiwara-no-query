@@ -1,6 +1,6 @@
 import { Avatar, Box } from '@chakra-ui/react'
 import Link from 'next/link'
-import { IPost } from '@App/core/types/IPost'
+import { IPost } from '@core/types/IPost'
 
 interface IPostProps {
   post: IPost

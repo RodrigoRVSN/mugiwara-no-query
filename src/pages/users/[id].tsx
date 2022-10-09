@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import UsersService from '@App/core/services/UsersService'
-import { IUser } from '@App/core/types/IPost'
+import UsersService from '@core/services/UsersService'
+import { IUser } from '@core/types/IPost'
 
 interface UserProps {
   user: IUser
